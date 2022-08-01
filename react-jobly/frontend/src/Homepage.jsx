@@ -1,19 +1,27 @@
 import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
-import UserContext from '../context/UserContext';
+import UserContext from '../Users/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 function Homepage() {
-    const { user } = useContext(UserContext);
+    const userContext = useContext(UserContext);
+    const { currentUser } = userContext;
+    console.debug("Homepage", currentUser);
+
     return (
-        <div>
-            <h1>Homepage</h1>
-            <p>Welcome Back, {user.name}!</p>
-            <p>
-                <Link to="/jobs">View Jobs</Link>
-            </p>
-            <p>
-                <Link to="/login">Logout</Link>
-            </p>
+        <div className="Homepage">
+            <h1>Jobly</h1>
+            <p className='lead'>Your next job awaits</p>
+            {currentUser ? (
+                <p>
+                    Welcome, {currentUser.first_name}!
+                    <Link to="/jobs">Find a job</Link>
+                </p>
+            ) : (
+                <p>
+                    <Link to="/login">Login</Link> or <Link to="/signup">Sign up</Link>
+                </p>
+            )}
         </div>
     );
 }
