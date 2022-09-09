@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import JoblyApi from "../JoblyApi";
+import JobCard from "../Jobs/JobCard";
 import JobCardList from "../Jobs/JobCardList";
 
 function CompanyDetails(props) {
@@ -34,4 +35,4 @@ function CompanyDetails(props) {
   );
 }
 
-export default companyDetails;
+export default CompanyDetails;
