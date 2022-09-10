@@ -11,7 +11,7 @@ function Homepage() {
     return (
         <div className="Homepage">
             <h1>Jobly</h1>
-            <p className='lead'>Your next job awaits</p>
+            <p className='lead'>Your next job awaits here.</p>
             {currentUser ? (
                 <p>
                     Welcome, {currentUser.first_name}!
